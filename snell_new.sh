@@ -111,22 +111,22 @@ check_status(){
 
 stable_Download() {
 	echo -e "${Info} 正在请求下载 Snell Server ……"
-	wget --no-check-certificate -N "https://dl.nssurge.com/snell/snell-server-v4.0.1-linux-${arch}.zip"
-	if [[ ! -e "snell-server-v4.0.1-linux-${arch}.zip" ]]; then
+	wget --no-check-certificate -N "https://dl.nssurge.com/snell/snell-server-v4.1.1-linux-${arch}.zip"
+	if [[ ! -e "snell-server-v4.1.1-linux-${arch}.zip" ]]; then
 		echo -e "${Error} Snell Server  下载失败！"
 		return 1 && exit 1
 	else
-		unzip -o "snell-server-v4.0.1-linux-${arch}.zip"
+		unzip -o "snell-server-v4.1.1-linux-${arch}.zip"
 	fi
 	if [[ ! -e "snell-server" ]]; then
 		echo -e "${Error} Snell Server  解压失败 !"
 		echo -e "${Error} Snell Server  安装失败 !"
 		return 1 && exit 1
 	else
-		rm -rf "snell-server-v4.0.1-linux-${arch}.zip"
+		rm -rf "snell-server-v4.1.1-linux-${arch}.zip"
 		chmod +x snell-server
 		mv -f snell-server "${FILE}"
-		echo "v4.0.1" > ${Now_ver_File}
+		echo "v4.1.1" > ${Now_ver_File}
 		echo -e "${Info} Snell Server 主程序下载安装完毕！"
 		return 0
 	fi
